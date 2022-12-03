@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import React,{useState} from 'react';
+import './App.css'
+export default function Myname(){
+  const [like, setLike] = useState(0);
+  const [dislike, setdislike] = useState(0);
+  return[
+    <div>
+      <h1>{like}</h1>
+      <button onClick={()=>{
+        setLike(like+1)
+      }}>LIKE</button>
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <button onClick={()=>{
+        setdislike(dislike-1)
+        if (dislike===0){
+          setLike(0)
+        }
+
+      }}>DISLIKE</button>
     </div>
-  );
-}
 
-export default App;
+  ]
+}
